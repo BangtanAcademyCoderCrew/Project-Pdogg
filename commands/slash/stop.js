@@ -47,7 +47,7 @@ const command = new SlashCommand()
 			embeds: [
 				new MessageEmbed()
 					.setColor(client.config.embedColor)
-					.setDescription(`:wave: | **Bye Bye!**`),
+					.setDescription(`<a:jinvanish:1043201913556062309> | **Bye Bye!**`),
 			],
 		});
 	});

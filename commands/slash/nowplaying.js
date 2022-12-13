@@ -46,6 +46,11 @@ const command = new SlashCommand()
 				ephemeral: true,
 			});
 		}
+
+		const twentyFourSeven = player.get("twentyFourSeven");
+		const trackRepeat = player.trackRepeat? "ON" : "OFF";
+		const queueRepeat = player.queueRepeat? "ON" : "OFF";
+		const autoPause = player.get("autoPause");
 		
 		const song = player.queue.current;
         var title = escapeMarkdown(song.title)
@@ -73,7 +78,28 @@ const command = new SlashCommand()
 						}) }\``,
 					inline: true,
 				},
+				{
+					name: "**24/7 mode:**",
+					value: `\`${twentyFourSeven ? "ON" : "OFF"}\``,
+					inline: true,
+				},
+				{
+					name: "**Autopause mode:**",
+					value: `\`${autoPause ? "ON" : "OFF"}\``,
+					inline: true,
+				},
+				{
+					name: "**Loop song**:",
+					value: `\`${trackRepeat}\``,
+					inline: true,
+				},
+				{
+					name: "**Loop queue**:",
+					value: `\`${queueRepeat}\``,
+					inline: true,
+				},
 			])
+			.setTimestamp()
 			// show the thumbnail of the song using displayThumbnail("maxresdefault")
 			.setThumbnail(song.displayThumbnail("maxresdefault"))
 			// show the title of the song and link to it

@@ -207,12 +207,17 @@ const command = new SlashCommand()
 					.setCustomId("queue_cmd_but_2_app")
 					.setEmoji("⏮️")
 					.setStyle("PRIMARY");
+
+				const buttonThree =	new MessageButton()
+					.setStyle("SECONDARY")
+					.setCustomId(`controller:${interaction.guild.id}:Queue`)
+					.setLabel("Show queue");
 				
 				await interaction
 					.editReply({
 						embeds: [embedThree],
 						components: [
-							new MessageActionRow().addComponents([buttonTwo, buttonOne]),
+							new MessageActionRow().addComponents([buttonTwo, buttonOne, buttonThree]),
 						],
 					})
 					.catch(() => {

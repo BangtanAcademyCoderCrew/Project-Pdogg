@@ -2,6 +2,7 @@
 db.json
 dbList.json
 .guild_dbs/
+config.js
 
 # Logs
 logs
